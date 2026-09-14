@@ -1,31 +1,21 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>About — Madeeha Asif</title>
-<meta name="description" content="About Madeeha Asif — Software QA Engineer & AI Researcher based in Islamabad, Pakistan. Education, experience timeline, achievements, and contact details."/>
+<meta name="description" content="About Madeeha Asif — Software Quality Assurance Engineer and Data Science researcher based in Islamabad, Pakistan. Education, experience timeline, awards and contact information."/>
 <style>
-/* ============================================================
-   MADEEHA ASIF — PORTFOLIO
-   Design tokens: warm paper light theme, aperture/portal motif
-============================================================ */
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Inter:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
 :root{
-  /* backgrounds */
   --paper:#faf7f1;
   --paper-alt:#f2ece0;
   --surface:#ffffff;
   --surface-line:#efe9dd;
-
-  /* ink */
   --ink:#1c1a16;
   --ink-soft:#5c574d;
   --ink-faint:#948d80;
-
-  /* accents */
   --indigo:#4740d4;
   --indigo-deep:#332c9e;
   --indigo-soft:#edecfb;
@@ -35,11 +25,9 @@
   --amber-soft:#faf0dd;
   --rose:#b23a52;
   --rose-soft:#f9e9ec;
-
   --border:rgba(28,26,22,0.12);
   --border-soft:rgba(28,26,22,0.07);
   --radius:16px;
-  --radius-sm:10px;
   --shadow:0 10px 34px rgba(60,50,20,0.08);
   --shadow-lg:0 24px 60px rgba(50,40,20,0.12);
 }
@@ -54,27 +42,7 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 a{color:inherit;}
-img{display:block;max-width:100%;}
-ul{list-style:none;}
 
-/* texture: faint paper grain */
-body::before{
-  content:'';position:fixed;inset:0;z-index:-2;pointer-events:none;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-}
-/* mesh: soft color wash so the theme reads immediately, even in light mode */
-body::after{
-  content:'';position:fixed;inset:0;z-index:-3;pointer-events:none;
-  background:
-    radial-gradient(ellipse 60% 45% at 85% -8%, rgba(71,64,212,0.10) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 40% at -5% 18%, rgba(13,140,124,0.09) 0%, transparent 55%),
-    radial-gradient(ellipse 45% 35% at 60% 95%, rgba(182,121,31,0.08) 0%, transparent 55%),
-    var(--paper);
-}
-
-.wrap{max-width:1180px;margin:0 auto;padding:0 2.4rem;}
-
-/* ============ NAV ============ */
 header.site-nav{
   position:sticky;top:0;z-index:500;
   background:rgba(250,247,241,0.86);
@@ -116,14 +84,7 @@ header.site-nav{
   transition:all .2s;
 }
 .nav-cta:hover{background:var(--indigo-deep);transform:translateY(-1px);}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;}
-.hamburger span{width:22px;height:2px;background:var(--ink);border-radius:2px;}
-.mobile-nav{display:none;flex-direction:column;background:var(--surface);border-bottom:1px solid var(--border);padding:0.5rem 2rem 1.2rem;}
-.mobile-nav.open{display:flex;}
-.mobile-nav a{padding:0.75rem 0;border-bottom:1px solid var(--border-soft);text-decoration:none;color:var(--ink-soft);font-size:0.95rem;}
-.mobile-nav a.active{color:var(--indigo);font-weight:600;}
 
-/* ============ SECTION SCAFFOLDING ============ */
 section{padding:5.5rem 0;position:relative;}
 section.alt{background:var(--paper-alt);}
 .eyebrow{
@@ -144,59 +105,37 @@ h1,h2,h3,h4{font-family:'Fraunces',serif;letter-spacing:-0.02em;color:var(--ink)
 .sec-title em{font-style:italic;font-weight:500;color:var(--indigo);}
 .sec-lede{color:var(--ink-soft);max-width:640px;font-size:1.02rem;font-weight:400;margin-bottom:3rem;}
 
-/* ============ CARDS ============ */
-.grid-3{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.3rem;}
 .grid-2{display:grid;grid-template-columns:repeat(auto-fill,minmax(380px,1fr));gap:1.3rem;}
 .card{
   background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);
   padding:1.8rem 1.7rem 1.7rem;transition:all .28s;position:relative;overflow:hidden;
 }
-.card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:3px;
-  background:linear-gradient(90deg,var(--indigo),var(--teal),var(--amber));
-  transform:scaleX(0);transform-origin:left;transition:transform .35s ease;
-}
-.card:hover::before{transform:scaleX(1);}
-.card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:transparent;}
 .c-ico{
   width:48px;height:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;
   font-size:1.3rem;margin-bottom:1.1rem;position:relative;
 }
-.c-ico::after{content:'';position:absolute;inset:0;border-radius:13px;border:1px solid currentColor;opacity:0.18;}
 .c-ico.i{background:var(--indigo-soft);color:var(--indigo);}
 .c-ico.t{background:var(--teal-soft);color:var(--teal);}
-.c-ico.a{background:var(--amber-soft);color:var(--amber);}
-.card h3{font-size:1.02rem;font-weight:700;margin-bottom:0.5rem;}
-.card p{color:var(--ink-soft);font-size:0.88rem;font-weight:400;}
 .tag-row{display:flex;flex-wrap:wrap;gap:0.35rem;margin-top:1rem;}
 .tag{font-family:'IBM Plex Mono',monospace;font-size:0.64rem;padding:0.25rem 0.6rem;border-radius:5px;letter-spacing:0.02em;}
 .tag-i{background:var(--indigo-soft);color:var(--indigo-deep);}
 .tag-t{background:var(--teal-soft);color:#0a6b5f;}
 
-/* ============ TIMELINE ============ */
 .tl{position:relative;padding-left:2.4rem;}
 .tl::before{content:'';position:absolute;left:5px;top:6px;bottom:6px;width:1.5px;background:linear-gradient(180deg,var(--indigo),var(--teal),var(--amber));}
 .tl-item{position:relative;margin-bottom:2.6rem;}
-.tl-item:last-child{margin-bottom:0;}
 .tl-dot{position:absolute;left:-2.15rem;top:0.3rem;width:12px;height:12px;border-radius:50%;background:var(--surface);border:2.5px solid var(--indigo);}
-.tl-dot.t{border-color:var(--teal);}
-.tl-dot.a{border-color:var(--amber);}
 .tl-when{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;letter-spacing:0.06em;color:var(--ink-faint);margin-bottom:0.4rem;text-transform:uppercase;}
 .tl-role{font-family:'Fraunces',serif;font-weight:700;font-size:1.1rem;margin-bottom:0.1rem;}
-.tl-co{font-size:0.86rem;font-weight:600;margin-bottom:0.55rem;}
-.tl-co.i{color:var(--indigo);}
-.tl-co.t{color:#0a6b5f;}
+.tl-co{font-size:0.86rem;font-weight:600;margin-bottom:0.55rem;color:var(--indigo);}
 .tl-body{color:var(--ink-soft);font-size:0.88rem;max-width:640px;}
 
-/* ============ ACHIEVEMENTS ============ */
 .ach-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;}
 .ach{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.05rem 1.3rem;display:flex;align-items:center;gap:1rem;transition:all .22s;}
-.ach:hover{border-color:var(--amber);transform:translateX(4px);}
 .ach-ico{font-size:1.5rem;flex-shrink:0;}
 .ach-txt strong{display:block;font-size:0.9rem;font-family:'Fraunces',serif;font-weight:700;}
 .ach-txt span{font-size:0.76rem;color:var(--ink-faint);}
 
-/* ============ CONTACT / INFO BOXES ============ */
 .info-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.4rem;}
 .info-box h4{font-family:'IBM Plex Mono',monospace;font-size:0.66rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:0.9rem;}
 .info-r{display:flex;justify-content:space-between;align-items:center;padding:0.5rem 0;border-bottom:1px solid var(--border-soft);font-size:0.85rem;gap:1rem;}
@@ -206,7 +145,6 @@ h1,h2,h3,h4{font-family:'Fraunces',serif;letter-spacing:-0.02em;color:var(--ink)
 .con-link{display:flex;align-items:center;gap:0.8rem;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:0.9rem 1.15rem;font-size:0.87rem;font-weight:500;transition:all .22s;}
 .con-link:hover{border-color:var(--indigo);color:var(--indigo);background:var(--indigo-soft);}
 
-/* ============ FOOTER ============ */
 footer{border-top:1px solid var(--border);padding:2.2rem 0;}
 .foot-inner{max-width:1180px;margin:0 auto;padding:0 2.4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
 footer p{color:var(--ink-faint);font-size:0.8rem;}
@@ -214,10 +152,8 @@ footer p{color:var(--ink-faint);font-size:0.8rem;}
 .foot-links a{color:var(--ink-faint);text-decoration:none;font-size:0.8rem;transition:color .2s;}
 .foot-links a:hover{color:var(--indigo);}
 
-/* ============ RESPONSIVE ============ */
 @media(max-width:900px){
   .nav-links,.nav-cta{display:none;}
-  .hamburger{display:flex;}
   .con-grid{grid-template-columns:1fr!important;}
 }
 @media(max-width:600px){
@@ -233,7 +169,7 @@ footer p{color:var(--ink-faint);font-size:0.8rem;}
   <div class="nav-inner">
     <a href="index.html" class="brand">
       <div class="brand-mark"><span>MA</span></div>
-      <div class="brand-text"><b>Madeeha Asif</b><small>QA Engineer · AI Researcher</small></div>
+      <div class="brand-text"><b>Madeeha Asif</b><small>Software QA Engineer · Medical AI Researcher</small></div>
     </a>
     <nav class="nav-links">
       <a href="index.html">Home</a>
@@ -241,14 +177,7 @@ footer p{color:var(--ink-faint);font-size:0.8rem;}
       <a href="projects.html">Projects</a>
       <a href="skills.html">Skills</a>
     </nav>
-    <a href="mailto:madeehasif.99@gmail.com" class="nav-cta">Get In Touch ↗</a>
-    <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
-  </div>
-  <div class="mobile-nav" id="mobileNav">
-    <a href="index.html">Home</a>
-    <a href="about.html" class="active">About</a>
-    <a href="projects.html">Projects</a>
-    <a href="skills.html">Skills</a>
+    <a href="mailto:madeehasif.99@gmail.com" class="nav-cta">Get in Touch ↗</a>
   </div>
 </header>
 
@@ -257,11 +186,9 @@ footer p{color:var(--ink-faint);font-size:0.8rem;}
   <div class="wrap">
     <div class="page-mark"><div class="in"></div></div>
     <div class="eyebrow">About Me</div>
-    <h1 class="sec-title">Detail-oriented <em>Software QA Engineer</em> &amp; AI Researcher — aiming for a PhD in Medical AI.</h1>
+    <h1 class="sec-title">Bridging rigorous <em>Software Quality Assurance</em> with cutting-edge <em>Healthcare AI Research</em>.</h1>
     <p class="sec-lede" style="margin-bottom:0;max-width:760px;">
-      I'm Madeeha Asif, a Software Quality Assurance Engineer and Medical AI researcher based in Islamabad, Pakistan[cite: 1, 2].
-      With 4+ years of professional experience in manual, API (Postman), performance (JMeter), and LLM/AI software testing[cite: 1, 2], I ensure high-quality delivery across web and mobile platforms[cite: 1].
-      Alongside my industry QA career, I hold a Master's degree in Data Science[cite: 1, 2] and am actively researching Deep Learning &amp; Generative AI models for healthcare applications[cite: 2].
+      I'm Madeeha Asif, a Detail-oriented Software QA Engineer and Researcher based in Islamabad, Pakistan. With over 4 years of experience, I specialize in manual, functional, regression, API (Postman), database, and performance testing (JMeter) for AI/LLM-driven software. Alongside my QA career, I hold a Master's in Data Science where I conducted pioneering research on Drug-Drug Interaction (DDI) predictions using deep learning. I am currently seeking PhD opportunities to contribute impactful, explainable AI solutions in medical technology.
     </p>
   </div>
 </section>
@@ -274,16 +201,16 @@ footer p{color:var(--ink-faint);font-size:0.8rem;}
     <div class="grid-2">
       <div class="card">
         <div class="c-ico t">🎓</div>
-        <h3>Master's in Data Science</h3>
-        <p>Bahria University, Islamabad, Pakistan — CGPA 3.33/4.0 · 2022 – 2024[cite: 2]</p>
-        <p style="margin-top:0.8rem;"><strong>Thesis:</strong> "Suggestive Strategies for Mitigating Adverse Effects in Drug-Drug Interactions" — Developed deep learning models (CNN & DNN) using DrugBank SMILES structures and NLP processing to predict 65 drug interaction event types, achieving 89.89% accuracy[cite: 2].</p>
-        <div class="tag-row"><span class="tag tag-t">Deep Learning</span><span class="tag tag-t">Healthcare AI</span><span class="tag tag-t">NLP</span></div>
+        <h3>MS Data Science</h3>
+        <p>Bahria University, Islamabad, Pakistan — CGPA 3.30/4.0 · 2022 – 2024</p>
+        <p style="margin-top:0.8rem;"><strong>Thesis:</strong> "Suggestive Strategies for Mitigating Adverse Effects in Drug-Drug Interactions" — Developed a deep learning framework (CNN &amp; DNN) predicting 65 DDI event types using SMILES molecular structures, target, and pathway features. Achieved a peak CNN accuracy of 89.89% and F1-score of 80.72%.</p>
+        <div class="tag-row"><span class="tag tag-t">Deep Learning (CNN/DNN)</span><span class="tag tag-t">NLP &amp; SMILES</span><span class="tag tag-t">Medical AI</span></div>
       </div>
       <div class="card">
         <div class="c-ico i">🎓</div>
-        <h3>BS in Software Engineering</h3>
-        <p>International Islamic University, Islamabad, Pakistan — CGPA 3.67/4.0 · 2018 – 2022 · Graduated with Distinction[cite: 2]</p>
-        <p style="margin-top:0.8rem;"><strong>Final Year Project:</strong> E-Academy — A web-based e-learning platform aimed at bridging the educational gap for underprivileged students[cite: 2].</p>
+        <h3>BS Software Engineering</h3>
+        <p>International Islamic University, Islamabad, Pakistan — CGPA 3.67/4.0 · 2018 – 2022 (Graduated with Distinction)</p>
+        <p style="margin-top:0.8rem;"><strong>Final Year Project:</strong> E-Academy: A Web-Based E-Learning Platform Aimed at Bridging the Educational Gap for Underprivileged Students built using React Native and SQL.</p>
         <div class="tag-row"><span class="tag tag-i">Software Engineering</span><span class="tag tag-i">React Native</span><span class="tag tag-i">SQL</span></div>
       </div>
     </div>
@@ -294,21 +221,21 @@ footer p{color:var(--ink-faint);font-size:0.8rem;}
 <section id="experience">
   <div class="wrap">
     <div class="eyebrow">Career Timeline</div>
-    <h2 class="sec-title">4+ Years of <em>Professional Quality Assurance & Research</em></h2>
+    <h2 class="sec-title">4+ Years of <em>Quality Assurance Expertise</em></h2>
     <div class="tl">
       <div class="tl-item">
         <div class="tl-dot"></div>
-        <div class="tl-when">Jan 2023 — Present · Current Role</div>
-        <div class="tl-role">Software Quality Assurance Engineer</div>
-        <div class="tl-co i">Smart Forum, Islamabad</div>
-        <div class="tl-body">Leading frontend, backend, API, database, and performance testing for AI-driven and LLM-powered applications[cite: 1, 2]. Managed testing for platforms like ClearMinds, Curio Autism Support, Dentally Voice Agent, and MediaNest[cite: 1, 2]. Recognized as <strong>Employee of the Month</strong>[cite: 1, 2].</div>
+        <div class="tl-when">January 2023 — Present · Current Role</div>
+        <div class="tl-role">Quality Assurance Engineer</div>
+        <div class="tl-co">Smart Forum, Islamabad</div>
+        <div class="tl-body">Extensive testing of frontend, backend, SQL/NoSQL databases, Postman APIs, and JMeter performance. Testing AI-driven and LLM-powered applications (Chatbots, Voice Agents, News Content Generators) ensuring high accuracy, reliability, and security. Awarded <strong>Employee of the Month</strong>.</div>
       </div>
       <div class="tl-item">
-        <div class="tl-dot t"></div>
+        <div class="tl-dot"></div>
         <div class="tl-when">June 2022 — August 2022</div>
         <div class="tl-role">Software Quality Assurance Engineer (Internee)</div>
-        <div class="tl-co t">The Microzone, Islamabad</div>
-        <div class="tl-body">Conducted manual testing, documented bug reports, created test cases, and maintained testing documentation for seamless project releases[cite: 1, 2].</div>
+        <div class="tl-co">The Microzone, Islamabad</div>
+        <div class="tl-body">Conducted manual testing, bug reporting, and test case documentation. Collaborated with dev teams for timely defect resolution and quality management.</div>
       </div>
     </div>
   </div>
@@ -320,11 +247,11 @@ footer p{color:var(--ink-faint);font-size:0.8rem;}
     <div class="eyebrow">Recognition</div>
     <h2 class="sec-title">Achievements <em>&amp; Honors</em></h2>
     <div class="ach-grid">
-      <div class="ach"><div class="ach-ico">🥇</div><div class="ach-txt"><strong>Employee of the Month</strong><span>Smart Forum, Islamabad[cite: 1, 2]</span></div></div>
-      <div class="ach"><div class="ach-ico">⭐</div><div class="ach-txt"><strong>Distinct Student Award</strong><span>International Islamic University, Islamabad[cite: 2]</span></div></div>
-      <div class="ach"><div class="ach-ico">🗣️</div><div class="ach-txt"><strong>Conference Presenter</strong><span>ICRACE'24 — Drug-Drug Interaction Research[cite: 2]</span></div></div>
-      <div class="ach"><div class="ach-ico">📄</div><div class="ach-txt"><strong>Publications Under Review</strong><span>IC&C 2026 Conferences[cite: 2]</span></div></div>
-      <div class="ach"><div class="ach-ico">❤️</div><div class="ach-txt"><strong>Community Volunteer</strong><span>IDEAS Foundation &amp; Qalam Movement[cite: 2]</span></div></div>
+      <div class="ach"><div class="ach-ico">🥇</div><div class="ach-txt"><strong>Employee of the Month</strong><span>Smart Forum, Islamabad</span></div></div>
+      <div class="ach"><div class="ach-ico">⭐</div><div class="ach-txt"><strong>Graduated with Distinction</strong><span>International Islamic University, Islamabad — BSSE</span></div></div>
+      <div class="ach"><div class="ach-ico">🎤</div><div class="ach-txt"><strong>Conference Presenter</strong><span>ICRACE'24, Bahria University &amp; Altinbas Univ. Turkey</span></div></div>
+      <div class="ach"><div class="ach-ico">📄</div><div class="ach-txt"><strong>Research Manuscripts Under Review</strong><span>4th International Conference on Intelligent Control &amp; Computing (IC&amp;C 2026)</span></div></div>
+      <div class="ach"><div class="ach-ico">🤝</div><div class="ach-txt"><strong>Community Service &amp; Volunteer</strong><span>IDEAS Foundation, SOS Children's Villages &amp; Qalam Movement</span></div></div>
     </div>
   </div>
 </section>
@@ -334,23 +261,24 @@ footer p{color:var(--ink-faint);font-size:0.8rem;}
   <div class="wrap">
     <div class="eyebrow">Get In Touch</div>
     <h2 class="sec-title">Let's <em>Connect</em></h2>
-    <p class="sec-lede">Available for QA Engineering roles, AI/ML Research collaborations, and PhD opportunities worldwide[cite: 2].</p>
+    <p class="sec-lede">Available for Senior QA Engineer roles, Medical AI/Data Science opportunities, and PhD research positions worldwide.</p>
     <div class="grid-2 con-grid" style="grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start;">
       <div style="display:flex;flex-direction:column;gap:0.6rem;">
-        <a href="mailto:madeehasif.99@gmail.com" class="con-link">✉️ madeehasif.99@gmail.com[cite: 1, 2]</a>
-        <a href="tel:+923090296803" class="con-link">📞 +92 309 0296803[cite: 1, 2]</a>
-        <a href="https://linkedin.com/in/madeeha-asif-a10661241" target="_blank" class="con-link">🔗 LinkedIn — madeeha-asif-a10661241[cite: 1, 2]</a>
+        <a href="mailto:madeehasif.99@gmail.com" class="con-link">✉️ madeehasif.99@gmail.com</a>
+        <a href="tel:+923090296803" class="con-link">📞 +92 309 029 6803 (WhatsApp)</a>
+        <a href="https://www.linkedin.com/in/madeeha-asif-a10661241" target="_blank" class="con-link">🔗 LinkedIn — madeeha-asif-a10661241</a>
+        <a href="http://111.68.99.22:8080/xmlui/handle/123456789/19115" target="_blank" class="con-link">📄 MS Thesis Publication Link</a>
       </div>
       <div style="display:flex;flex-direction:column;gap:1rem;">
         <div class="info-box">
           <h4>Personal Info</h4>
-          <div class="info-r"><span>Location</span><span>Islamabad, Pakistan[cite: 1, 2]</span></div>
-          <div class="info-r"><span>Languages</span><span>English · Urdu · Punjabi[cite: 1, 2]</span></div>
+          <div class="info-r"><span>Location</span><span>Islamabad, Pakistan</span></div>
+          <div class="info-r"><span>Languages</span><span>English · Urdu · Punjabi</span></div>
         </div>
         <div class="info-box">
           <h4>Education Snapshot</h4>
-          <div class="info-r"><span>MS Data Science</span><span>Bahria Univ. · 2024[cite: 1, 2]</span></div>
-          <div class="info-r"><span>BS Software Eng.</span><span>IIU Islamabad · 2022[cite: 1, 2]</span></div>
+          <div class="info-r"><span>MS Data Science</span><span>Bahria Univ. · 2024</span></div>
+          <div class="info-r"><span>BS Software Eng.</span><span>IIU Islamabad · 2022</span></div>
         </div>
       </div>
     </div>
@@ -359,7 +287,7 @@ footer p{color:var(--ink-faint);font-size:0.8rem;}
 
 <footer>
   <div class="foot-inner">
-    <p>© 2026 Madeeha Asif — Software QA Engineer · AI Researcher · Islamabad, Pakistan</p>
+    <p>© 2026 Madeeha Asif — Software QA Engineer · Medical AI Researcher · Islamabad, Pakistan</p>
     <div class="foot-links">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -368,9 +296,5 @@ footer p{color:var(--ink-faint);font-size:0.8rem;}
     </div>
   </div>
 </footer>
-
-<script>
-function toggleMenu(){document.getElementById('mobileNav').classList.toggle('open');}
-</script>
 </body>
 </html>
