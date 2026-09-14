@@ -1,1 +1,331 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Projects & Research — Madeeha</title>
+<meta name="description" content="Academic & Research Portfolio of Madeeha — Data Science, Applied Machine Learning, and Intelligent Systems."/>
+<style>
+/* ============================================================
+   MADEEHA — RESEARCH & ACADEMIC PORTFOLIO
+   Design tokens: Warm paper light theme with rose/magenta accents
+============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Inter:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root{
+  /* Backgrounds */
+  --paper:#fcfaf8;
+  --paper-alt:#f5efeb;
+  --surface:#ffffff;
+  --surface-line:#ebdcd5;
+
+  /* Ink */
+  --ink:#1a1518;
+  --ink-soft:#595055;
+  --ink-faint:#94888e;
+
+  /* Accents */
+  --rose:#d946ef;
+  --rose-deep:#9333ea;
+  --rose-soft:#fae8ff;
+  --teal:#0d8c7c;
+  --teal-soft:#e4f4f0;
+  --amber:#b6791f;
+  --amber-soft:#faf0dd;
+  --indigo:#4740d4;
+  --indigo-soft:#edecfb;
+
+  --border:rgba(26,21,24,0.12);
+  --border-soft:rgba(26,21,24,0.07);
+  --radius:16px;
+  --radius-sm:10px;
+  --shadow:0 10px 34px rgba(60,20,50,0.06);
+  --shadow-lg:0 24px 60px rgba(50,20,40,0.1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;}
+img{display:block;max-width:100%;}
+ul{list-style:none;}
+
+/* Subtle Paper Grain */
+body::before{
+  content:'';position:fixed;inset:0;z-index:-2;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+/* Background Color Wash */
+body::after{
+  content:'';position:fixed;inset:0;z-index:-3;pointer-events:none;
+  background:
+    radial-gradient(ellipse 60% 45% at 85% -8%, rgba(217,70,239,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at -5% 18%, rgba(13,140,124,0.07) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 35% at 60% 95%, rgba(182,121,31,0.06) 0%, transparent 55%),
+    var(--paper);
+}
+
+.wrap{max-width:1180px;margin:0 auto;padding:0 2.4rem;}
+
+/* ============ NAV ============ */
+header.site-nav{
+  position:sticky;top:0;z-index:500;
+  background:rgba(252,250,248,0.86);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border-soft);
+}
+.nav-inner{
+  max-width:1180px;margin:0 auto;padding:0 2.4rem;
+  height:76px;display:flex;align-items:center;justify-content:space-between;
+}
+.brand{display:flex;align-items:center;gap:0.8rem;text-decoration:none;}
+.brand-mark{
+  width:42px;height:42px;border-radius:50%;
+  background:conic-gradient(from 200deg, var(--rose), var(--teal), var(--amber), var(--rose));
+  display:flex;align-items:center;justify-content:center;position:relative;
+}
+.brand-mark::after{
+  content:'';position:absolute;inset:3px;border-radius:50%;background:var(--paper);
+}
+.brand-mark span{
+  position:relative;z-index:1;font-family:'Fraunces',serif;font-weight:700;font-size:1rem;color:var(--ink);
+}
+.brand-text{display:flex;flex-direction:column;line-height:1.15;}
+.brand-text b{font-family:'Fraunces',serif;font-weight:700;font-size:1.02rem;letter-spacing:-0.01em;}
+.brand-text small{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-faint);}
+
+.nav-links{display:flex;align-items:center;gap:0.3rem;}
+.nav-links a{
+  text-decoration:none;color:var(--ink-soft);font-size:0.86rem;font-weight:500;
+  padding:0.5rem 1rem;border-radius:100px;transition:all .2s;
+}
+.nav-links a:hover{color:var(--ink);background:var(--surface-line);}
+.nav-links a.active{color:var(--surface);background:var(--ink);}
+.nav-cta{
+  margin-left:0.6rem;text-decoration:none;
+  background:var(--rose);color:#fff;font-size:0.84rem;font-weight:600;
+  padding:0.55rem 1.25rem;border-radius:100px;
+  box-shadow:0 6px 18px rgba(217,70,239,0.28);
+  transition:all .2s;
+}
+.nav-cta:hover{background:var(--rose-deep);transform:translateY(-1px);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;}
+.hamburger span{width:22px;height:2px;background:var(--ink);border-radius:2px;}
+.mobile-nav{display:none;flex-direction:column;background:var(--surface);border-bottom:1px solid var(--border);padding:0.5rem 2rem 1.2rem;}
+.mobile-nav.open{display:flex;}
+.mobile-nav a{padding:0.75rem 0;border-bottom:1px solid var(--border-soft);text-decoration:none;color:var(--ink-soft);font-size:0.95rem;}
+.mobile-nav a.active{color:var(--rose);font-weight:600;}
+
+/* ============ SECTION SCAFFOLDING ============ */
+section{padding:5.5rem 0;position:relative;}
+.eyebrow{
+  font-family:'IBM Plex Mono',monospace;font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;
+  color:var(--rose);margin-bottom:0.9rem;display:flex;align-items:center;gap:0.6rem;
+}
+.eyebrow::before{content:'';width:22px;height:1px;background:var(--rose);display:inline-block;}
+.eyebrow::after{content:'';width:5px;height:5px;border-radius:50%;background:var(--teal);display:inline-block;}
+
+.page-mark{
+  width:52px;height:52px;border-radius:50%;margin-bottom:1.4rem;
+  background:conic-gradient(from 210deg,var(--rose),var(--teal),var(--amber),var(--indigo),var(--rose));
+  padding:4px;
+}
+.page-mark .in{width:100%;height:100%;border-radius:50%;background:var(--paper);}
+h1,h2,h3,h4{font-family:'Fraunces',serif;letter-spacing:-0.02em;color:var(--ink);}
+.sec-title{font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:700;margin-bottom:1rem;max-width:760px;}
+.sec-title em{font-style:italic;font-weight:500;color:var(--rose);}
+.sec-lede{color:var(--ink-soft);max-width:640px;font-size:1.02rem;font-weight:400;margin-bottom:3rem;}
+
+/* ============ BUTTONS ============ */
+.btn{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  padding:0.85rem 1.7rem;border-radius:100px;
+  font-weight:600;font-size:0.9rem;text-decoration:none;
+  transition:all .22s;border:1px solid transparent;cursor:pointer;
+}
+.btn-outline{border-color:var(--border);color:var(--ink);background:transparent;}
+.btn-outline:hover{border-color:var(--ink);background:var(--surface);}
+
+/* ============ TABS ============ */
+.tab-row{display:inline-flex;gap:0.35rem;background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:0.35rem;margin-bottom:2.6rem;flex-wrap:wrap;}
+.tab-btn{
+  border:none;background:transparent;padding:0.65rem 1.3rem;border-radius:100px;
+  font-family:'Inter',sans-serif;font-weight:600;font-size:0.85rem;color:var(--ink-soft);cursor:pointer;transition:all .22s;
+}
+.tab-btn.on{background:var(--ink);color:var(--paper);}
+
+/* ============ PROJECTS ============ */
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.4rem;}
+.pj{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all .28s;display:flex;flex-direction:column;}
+.pj:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+.pj-top{height:118px;display:flex;align-items:center;justify-content:center;font-size:2.5rem;position:relative;border-bottom:1px solid var(--border-soft);overflow:hidden;}
+.pj-top::before{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(circle,rgba(26,21,24,0.06) 1px, transparent 1px);
+  background-size:14px 14px;
+}
+.pj-top *{position:relative;z-index:1;}
+.pj-plat{position:absolute;top:0.7rem;right:0.7rem;font-family:'IBM Plex Mono',monospace;font-size:0.6rem;background:rgba(255,255,255,0.85);padding:0.2rem 0.55rem;border-radius:100px;letter-spacing:0.04em;text-transform:uppercase;font-weight:600;color:var(--ink-soft);}
+.pj-body{padding:1.4rem;flex:1;display:flex;flex-direction:column;}
+.pj-body h3{font-size:1rem;font-weight:700;margin-bottom:0.4rem;}
+.pj-body p{color:var(--ink-soft);font-size:0.85rem;flex:1;}
+.pj-link{display:inline-flex;align-items:center;gap:0.4rem;margin-top:1.1rem;font-size:0.78rem;font-weight:700;text-decoration:none;letter-spacing:0.03em;color:var(--rose);transition:gap .2s;}
+.pj-link::after{content:'→';}
+.pj-link:hover{gap:0.65rem;}
+.pj-note{font-size:0.78rem;color:var(--ink-faint);margin-top:1.1rem;font-style:italic;}
+
+/* TAGS */
+.tag-row{display:flex;flex-wrap:wrap;gap:0.35rem;margin-top:1rem;}
+.tag{font-family:'IBM Plex Mono',monospace;font-size:0.64rem;padding:0.25rem 0.6rem;border-radius:5px;letter-spacing:0.02em;}
+.tag-r{background:var(--rose-soft);color:var(--rose-deep);}
+.tag-t{background:var(--teal-soft);color:#0a6b5f;}
+.tag-a{background:var(--amber-soft);color:#8a5a10;}
+.tag-i{background:var(--indigo-soft);color:var(--indigo);}
+
+/* ============ FOOTER ============ */
+footer{border-top:1px solid var(--border);padding:2.2rem 0;}
+.foot-inner{max-width:1180px;margin:0 auto;padding:0 2.4rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+footer p{color:var(--ink-faint);font-size:0.8rem;}
+.foot-links{display:flex;gap:1.3rem;}
+.foot-links a{color:var(--ink-faint);text-decoration:none;font-size:0.8rem;transition:color .2s;}
+.foot-links a:hover{color:var(--rose);}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:900px){
+  .nav-links,.nav-cta{display:none;}
+  .hamburger{display:flex;}
+}
+@media(max-width:600px){
+  .wrap,.nav-inner,.foot-inner{padding:0 1.3rem;}
+  section{padding:3.6rem 0;}
+  .proj-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark"><span>M</span></div>
+      <div class="brand-text"><b>Madeeha</b><small>Researcher · Data Specialist</small></div>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="skills.html">Skills</a>
+    </nav>
+    <a href="mailto:madeeha@example.com" class="nav-cta">Contact ↗</a>
+    <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  </div>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="skills.html">Skills</a>
+  </div>
+</header>
+
+<section style="padding-bottom:2rem;">
+  <div class="wrap">
+    <div class="page-mark"><div class="in"></div></div>
+    <div class="eyebrow">Portfolio & Research</div>
+    <h1 class="sec-title">Featured Work & <em>Research Projects</em></h1>
+    <p class="sec-lede">A selection of academic research, data analytics pipelines, machine learning models, and interactive visualization systems.</p>
+
+    <div class="tab-row" id="tabRow">
+      <button class="tab-btn on" data-cat="all">All</button>
+      <button class="tab-btn" data-cat="ds">Data Science</button>
+      <button class="tab-btn" data-cat="ml">Machine Learning</button>
+      <button class="tab-btn" data-cat="viz">Visualization & Web</button>
+      <button class="tab-btn" data-cat="research">Research</button>
+    </div>
+
+    <div class="proj-grid" id="projGrid">
+
+      <div class="pj" data-cat="ds ml research">
+        <div class="pj-top" style="background:linear-gradient(135deg,var(--rose-soft),var(--teal-soft));">📊<span class="pj-plat">Research</span></div>
+        <div class="pj-body">
+          <h3>Healthcare Predictive Modeling</h3>
+          <p>Applied SVM, Random Forest, and Deep Learning algorithms for evaluation and analysis of healthcare datasets.</p>
+          <div class="tag-row"><span class="tag tag-r">Data Science</span><span class="tag tag-t">Machine Learning</span><span class="tag tag-a">Python</span></div>
+          <a href="#" target="_blank" class="pj-link">View Research Details</a>
+        </div>
+      </div>
+
+      <div class="pj" data-cat="ds viz">
+        <div class="pj-top" style="background:linear-gradient(135deg,var(--teal-soft),var(--amber-soft));">📈<span class="pj-plat">Analytics</span></div>
+        <div class="pj-body">
+          <h3>Interactive Data Visualization Dashboard</h3>
+          <p>Built end-to-end exploratory visual tools to interpret high-dimensional datasets clearly and effectively.</p>
+          <div class="tag-row"><span class="tag tag-t">Visualization</span><span class="tag tag-a">Analytics</span><span class="tag tag-r">Python</span></div>
+          <a href="#" target="_blank" class="pj-link">View Dashboard</a>
+        </div>
+      </div>
+
+      <div class="pj" data-cat="ml research">
+        <div class="pj-top" style="background:linear-gradient(135deg,var(--rose-soft),var(--indigo-soft));">🧠<span class="pj-plat">Machine Learning</span></div>
+        <div class="pj-body">
+          <h3>NLP Text Classification Pipeline</h3>
+          <p>Designed a natural language processing model for dynamic text categorization and feature extraction.</p>
+          <div class="tag-row"><span class="tag tag-r">NLP</span><span class="tag tag-i">PyTorch</span><span class="tag tag-t">Text Mining</span></div>
+          <a href="#" target="_blank" class="pj-link">View Repository</a>
+        </div>
+      </div>
+
+      <div class="pj" data-cat="viz research">
+        <div class="pj-top" style="background:linear-gradient(135deg,var(--amber-soft),var(--rose-soft));">🌐<span class="pj-plat">Web System</span></div>
+        <div class="pj-body">
+          <h3>Data-Driven Decision Support System</h3>
+          <p>Web-based interface connecting ML backend data streams into clean visual summaries for strategic decision-making.</p>
+          <div class="tag-row"><span class="tag tag-a">Web System</span><span class="tag tag-r">UI/UX</span><span class="tag tag-i">Data Analytics</span></div>
+          <a href="#" target="_blank" class="pj-link">Explore Project</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="margin-top:2.5rem;">
+      <a href="#" target="_blank" class="btn btn-outline">📁 View Complete Research Drive</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <p>© 2026 Madeeha — Researcher · Data Specialist</p>
+    <div class="foot-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="skills.html">Skills</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){document.getElementById('mobileNav').classList.toggle('open');}
+
+document.querySelectorAll('#tabRow .tab-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('#tabRow .tab-btn').forEach(b=>b.classList.remove('on'));
+    btn.classList.add('on');
+    const cat = btn.dataset.cat;
+    document.querySelectorAll('#projGrid .pj').forEach(pj=>{
+      const cats = pj.dataset.cat.split(' ');
+      pj.style.display = (cat==='all' || cats.includes(cat)) ? 'flex' : 'none';
+    });
+  });
+});
+</script>
+</body>
+</html>
